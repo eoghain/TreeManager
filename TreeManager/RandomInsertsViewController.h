@@ -1,5 +1,5 @@
 //
-//  RootViewController.h
+//  RandomInsertsViewController.h
 //  TreeManager
 //
 //  Created by Rob Booth on 12/28/11.
@@ -31,15 +31,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RBTreeManager.h"
 
-@class RandomInsertsViewController;
-
-@interface RootViewController : UITableViewController {
-
+@interface RandomInsertsViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate, RBTreeManagerDelegate> {
 }
 
-@property (nonatomic, retain) UISplitViewController *splitViewController;		
-@property (nonatomic, retain) IBOutlet RandomInsertsViewController *detailViewController;
-@property (nonatomic, retain) NSArray *tests;
+
+@property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
+@property (nonatomic, retain) RBTreeManager *treeManager;
+@property (nonatomic, retain) IBOutlet UITableView *tableView;
+@property (nonatomic, retain) IBOutlet UITextField *maxRootNodes;
+@property (nonatomic, retain) IBOutlet UITextField *maxChildNodes;
+@property (nonatomic, retain) IBOutlet UITextField *maxDepth;
+
+- (IBAction)insertTest:(id)sender;
 
 @end

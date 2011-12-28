@@ -1,5 +1,5 @@
 //
-//  RootViewController.h
+//  RBTreeNode.h
 //  TreeManager
 //
 //  Created by Rob Booth on 12/28/11.
@@ -30,16 +30,24 @@
 //  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@class RandomInsertsViewController;
 
-@interface RootViewController : UITableViewController {
-
+@interface RBTreeNode : NSObject {
+    id				_object;
+	int				_depth;
+	RBTreeNode		*_parent;
+	NSMutableArray	*_children;
 }
 
-@property (nonatomic, retain) UISplitViewController *splitViewController;		
-@property (nonatomic, retain) IBOutlet RandomInsertsViewController *detailViewController;
-@property (nonatomic, retain) NSArray *tests;
+@property (nonatomic, retain) id				object;
+@property (nonatomic, assign) int				depth;
+@property (nonatomic, assign) RBTreeNode			*parent;
+@property (nonatomic, retain) NSMutableArray	*children;
+
+- (id)initWithObject:(id)object;
+- (id)initWithObject:(id)object andDepth:(int)depth;
+- (void)removeChild:(RBTreeNode *)node;
+- (NSArray *)flattenNodes;
 
 @end

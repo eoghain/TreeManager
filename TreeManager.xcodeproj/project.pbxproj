@@ -14,9 +14,14 @@
 		3136209414AB9BE6000DD87F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3136209314AB9BE6000DD87F /* main.m */; };
 		3136209714AB9BE6000DD87F /* TreeManagerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3136209614AB9BE6000DD87F /* TreeManagerAppDelegate.m */; };
 		3136209A14AB9BE6000DD87F /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3136209814AB9BE6000DD87F /* MainWindow.xib */; };
-		3136209D14AB9BE6000DD87F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3136209C14AB9BE6000DD87F /* DetailViewController.m */; };
-		313620A014AB9BE6000DD87F /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3136209E14AB9BE6000DD87F /* DetailView.xib */; };
+		3136209D14AB9BE6000DD87F /* RandomInsertsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3136209C14AB9BE6000DD87F /* RandomInsertsViewController.m */; };
+		313620A014AB9BE6000DD87F /* RandomInsertsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3136209E14AB9BE6000DD87F /* RandomInsertsView.xib */; };
 		313620A314AB9BE6000DD87F /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313620A214AB9BE6000DD87F /* RootViewController.m */; };
+		313620AA14AB9C17000DD87F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 313620A914AB9C17000DD87F /* README.md */; };
+		313620B014AB9E2B000DD87F /* RBTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 313620AD14AB9E2B000DD87F /* RBTreeNode.m */; };
+		313620B114AB9E2B000DD87F /* RBTreeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 313620AF14AB9E2B000DD87F /* RBTreeManager.m */; };
+		313620B614ABA36B000DD87F /* NodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 313620B414ABA36B000DD87F /* NodeView.m */; };
+		313620B714ABA36B000DD87F /* NodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 313620B514ABA36B000DD87F /* NodeView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,18 +29,26 @@
 		3136208614AB9BE6000DD87F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		3136208814AB9BE6000DD87F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3136208A14AB9BE6000DD87F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		3136208E14AB9BE6000DD87F /* TreeManager-Info.plist */ = {isa = PBXFileReference; path = "TreeManager-Info.plist"; sourceTree = "<group>"; };
+		3136208E14AB9BE6000DD87F /* TreeManager-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "TreeManager-Info.plist"; sourceTree = "<group>"; };
 		3136209014AB9BE6000DD87F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		3136209214AB9BE6000DD87F /* TreeManager-Prefix.pch */ = {isa = PBXFileReference; path = "TreeManager-Prefix.pch"; sourceTree = "<group>"; };
+		3136209214AB9BE6000DD87F /* TreeManager-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TreeManager-Prefix.pch"; sourceTree = "<group>"; };
 		3136209314AB9BE6000DD87F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		3136209514AB9BE6000DD87F /* TreeManagerAppDelegate.h */ = {isa = PBXFileReference; path = TreeManagerAppDelegate.h; sourceTree = "<group>"; };
+		3136209514AB9BE6000DD87F /* TreeManagerAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TreeManagerAppDelegate.h; sourceTree = "<group>"; };
 		3136209614AB9BE6000DD87F /* TreeManagerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TreeManagerAppDelegate.m; sourceTree = "<group>"; };
 		3136209914AB9BE6000DD87F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
-		3136209B14AB9BE6000DD87F /* DetailViewController.h */ = {isa = PBXFileReference; path = DetailViewController.h; sourceTree = "<group>"; };
-		3136209C14AB9BE6000DD87F /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		3136209F14AB9BE6000DD87F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DetailView.xib; sourceTree = "<group>"; };
-		313620A114AB9BE6000DD87F /* RootViewController.h */ = {isa = PBXFileReference; path = RootViewController.h; sourceTree = "<group>"; };
+		3136209B14AB9BE6000DD87F /* RandomInsertsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RandomInsertsViewController.h; sourceTree = "<group>"; };
+		3136209C14AB9BE6000DD87F /* RandomInsertsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RandomInsertsViewController.m; sourceTree = "<group>"; };
+		3136209F14AB9BE6000DD87F /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/RandomInsertsView.xib; sourceTree = "<group>"; };
+		313620A114AB9BE6000DD87F /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		313620A214AB9BE6000DD87F /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		313620A914AB9C17000DD87F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		313620AC14AB9E2B000DD87F /* RBTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBTreeNode.h; sourceTree = "<group>"; };
+		313620AD14AB9E2B000DD87F /* RBTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBTreeNode.m; sourceTree = "<group>"; };
+		313620AE14AB9E2B000DD87F /* RBTreeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RBTreeManager.h; sourceTree = "<group>"; };
+		313620AF14AB9E2B000DD87F /* RBTreeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RBTreeManager.m; sourceTree = "<group>"; };
+		313620B314ABA36B000DD87F /* NodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeView.h; sourceTree = "<group>"; };
+		313620B414ABA36B000DD87F /* NodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeView.m; sourceTree = "<group>"; };
+		313620B514ABA36B000DD87F /* NodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NodeView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +68,7 @@
 		3136207714AB9BE6000DD87F = {
 			isa = PBXGroup;
 			children = (
+				313620A914AB9C17000DD87F /* README.md */,
 				3136208C14AB9BE6000DD87F /* TreeManager */,
 				3136208514AB9BE6000DD87F /* Frameworks */,
 				3136208314AB9BE6000DD87F /* Products */,
@@ -82,12 +96,14 @@
 		3136208C14AB9BE6000DD87F /* TreeManager */ = {
 			isa = PBXGroup;
 			children = (
+				313620B214ABA352000DD87F /* Helpers */,
+				313620AB14AB9DFA000DD87F /* Classes */,
 				3136209514AB9BE6000DD87F /* TreeManagerAppDelegate.h */,
 				3136209614AB9BE6000DD87F /* TreeManagerAppDelegate.m */,
 				3136209814AB9BE6000DD87F /* MainWindow.xib */,
-				3136209B14AB9BE6000DD87F /* DetailViewController.h */,
-				3136209C14AB9BE6000DD87F /* DetailViewController.m */,
-				3136209E14AB9BE6000DD87F /* DetailView.xib */,
+				3136209B14AB9BE6000DD87F /* RandomInsertsViewController.h */,
+				3136209C14AB9BE6000DD87F /* RandomInsertsViewController.m */,
+				3136209E14AB9BE6000DD87F /* RandomInsertsView.xib */,
 				313620A114AB9BE6000DD87F /* RootViewController.h */,
 				313620A214AB9BE6000DD87F /* RootViewController.m */,
 				3136208D14AB9BE6000DD87F /* Supporting Files */,
@@ -104,6 +120,27 @@
 				3136209314AB9BE6000DD87F /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		313620AB14AB9DFA000DD87F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				313620AC14AB9E2B000DD87F /* RBTreeNode.h */,
+				313620AD14AB9E2B000DD87F /* RBTreeNode.m */,
+				313620AE14AB9E2B000DD87F /* RBTreeManager.h */,
+				313620AF14AB9E2B000DD87F /* RBTreeManager.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		313620B214ABA352000DD87F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				313620B314ABA36B000DD87F /* NodeView.h */,
+				313620B414ABA36B000DD87F /* NodeView.m */,
+				313620B514ABA36B000DD87F /* NodeView.xib */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -132,7 +169,7 @@
 		3136207914AB9BE6000DD87F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				ORGANIZATIONNAME = "Bridgepoint Education";
+				ORGANIZATIONNAME = Fake;
 			};
 			buildConfigurationList = 3136207C14AB9BE6000DD87F /* Build configuration list for PBXProject "TreeManager" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -158,7 +195,9 @@
 			files = (
 				3136209114AB9BE6000DD87F /* InfoPlist.strings in Resources */,
 				3136209A14AB9BE6000DD87F /* MainWindow.xib in Resources */,
-				313620A014AB9BE6000DD87F /* DetailView.xib in Resources */,
+				313620A014AB9BE6000DD87F /* RandomInsertsView.xib in Resources */,
+				313620AA14AB9C17000DD87F /* README.md in Resources */,
+				313620B714ABA36B000DD87F /* NodeView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,8 +210,11 @@
 			files = (
 				3136209414AB9BE6000DD87F /* main.m in Sources */,
 				3136209714AB9BE6000DD87F /* TreeManagerAppDelegate.m in Sources */,
-				3136209D14AB9BE6000DD87F /* DetailViewController.m in Sources */,
+				3136209D14AB9BE6000DD87F /* RandomInsertsViewController.m in Sources */,
 				313620A314AB9BE6000DD87F /* RootViewController.m in Sources */,
+				313620B014AB9E2B000DD87F /* RBTreeNode.m in Sources */,
+				313620B114AB9E2B000DD87F /* RBTreeManager.m in Sources */,
+				313620B614ABA36B000DD87F /* NodeView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,12 +237,12 @@
 			name = MainWindow.xib;
 			sourceTree = "<group>";
 		};
-		3136209E14AB9BE6000DD87F /* DetailView.xib */ = {
+		3136209E14AB9BE6000DD87F /* RandomInsertsView.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				3136209F14AB9BE6000DD87F /* en */,
 			);
-			name = DetailView.xib;
+			name = RandomInsertsView.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -1,5 +1,5 @@
 //
-//  RootViewController.h
+//  NodeView.m
 //  TreeManager
 //
 //  Created by Rob Booth on 12/28/11.
@@ -30,16 +30,37 @@
 //  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import <UIKit/UIKit.h>
+#import "NodeView.h"
 
-@class RandomInsertsViewController;
 
-@interface RootViewController : UITableViewController {
+@implementation NodeView
 
+@synthesize nodeName = _nodeName;
+
+- (id)initWithFrame:(CGRect)frame
+{
+	self = [[[[NSBundle mainBundle] loadNibNamed:@"NodeView" owner:nil options:nil] lastObject] retain];
+
+    if (self) {
+		self.frame = frame;
+        // Initialization code
+    }
+    return self;
 }
 
-@property (nonatomic, retain) UISplitViewController *splitViewController;		
-@property (nonatomic, retain) IBOutlet RandomInsertsViewController *detailViewController;
-@property (nonatomic, retain) NSArray *tests;
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect
+{
+    // Drawing code
+}
+*/
+
+- (void)dealloc
+{
+	[_nodeName release], _nodeName = nil;
+    [super dealloc];
+}
 
 @end

@@ -1,5 +1,5 @@
 //
-//  RootViewController.h
+//  NodeView.h
 //  TreeManager
 //
 //  Created by Rob Booth on 12/28/11.
@@ -32,14 +32,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class RandomInsertsViewController;
 
-@interface RootViewController : UITableViewController {
-
-}
-
-@property (nonatomic, retain) UISplitViewController *splitViewController;		
-@property (nonatomic, retain) IBOutlet RandomInsertsViewController *detailViewController;
-@property (nonatomic, retain) NSArray *tests;
+@interface NodeView : UIView
+    
+@property (nonatomic, retain) UILabel IBOutlet *nodeName;
 
 @end

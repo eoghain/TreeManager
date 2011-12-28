@@ -3,24 +3,61 @@
 //  TreeManager
 //
 //  Created by Rob Booth on 12/28/11.
-//  Copyright 2011 Bridgepoint Education. All rights reserved.
+//
+//  Copyright (c) 2001 Rob Booth
+//
+//  Permission is hereby granted, free of charge, 
+//  to any person obtaining a copy of this software 
+//  and associated documentation files (the "Software"), 
+//  to deal in the Software without restriction, including 
+//  without limitation the rights to use, copy, modify, 
+//  merge, publish, distribute, sublicense, and/or sell 
+//  copies of the Software, and to permit persons to whom 
+//  the Software is furnished to do so, subject to the 
+//  following conditions:
+//
+//  The above copyright notice and this permission notice 
+//  shall be included in all copies or substantial portions 
+//  of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY 
+//  KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE 
+//  WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR 
+//  PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS 
+//  OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR 
+//  OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR 
+//  OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+//  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
 #import "RootViewController.h"
 
-#import "DetailViewController.h"
+#import "RandomInsertsViewController.h"
 
 @implementation RootViewController
 		
+@synthesize splitViewController;
 @synthesize detailViewController;
+@synthesize tests;
 
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
 	self.clearsSelectionOnViewWillAppear = NO;
 	self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
+	
+	self.tests = [NSArray arrayWithObjects:@"Random Inserts", nil];
+	[self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
+	
+	self.title = @"Tree Manager Tests";
+	
+	self.detailViewController = [[RandomInsertsViewController alloc] initWithNibName:@"RandomInsertView" bundle:nil];
+	
+	// Update the split view controller's view controllers array.
+    NSArray *viewControllers = [[NSArray alloc] initWithObjects:self.navigationController, self.detailViewController, nil];
+    self.splitViewController.viewControllers = viewControllers;
+    [viewControllers release];
 }
-
 		
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -51,14 +88,11 @@
 	return 1;
 			
 }
-
 		
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 0;
-			
+	return [self.tests count];
 }
-
 		
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -70,6 +104,7 @@
     }
 
 	// Configure the cell.
+	[cell.textLabel setText:[self.tests objectAtIndex:indexPath.row]];
 			
     return cell;
 }
@@ -134,6 +169,7 @@
 
 - (void)dealloc
 {
+	[splitViewController release];
 	[detailViewController release];
     [super dealloc];
 }

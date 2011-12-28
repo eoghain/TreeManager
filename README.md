@@ -1,19 +1,19 @@
-# TreeManager #
-TreeManager is a set of classes built to easily manage hierarchical data in iOS TableViews.  These classes were originally built because of a need to display threaded discussion posts (lots of them) in an iOS application.  Unfortunately TableViews want there data in a flat format (i.e. array) but we all like to have our data reference it's parents/children so we can easily navigate it.  So this was my solution.
+# RBTreeManager #
+RBTreeManager is a set of classes built to easily manage hierarchical data in iOS TableViews.  These classes were originally built because of a need to display threaded discussion posts (lots of them) in an iOS application.  Unfortunately TableViews want there data in a flat format (i.e. array) but we all like to have our data reference it's parents/children so we can easily navigate it.  So this was my solution.
 
-To use the TreeMananger just copy the TreeManager.* and TreeNode.* files into your application somewhere.  Once you have the files you can create a new TreeManager object, set its delegate, and start populating it:
+To use the TreeMananger just copy the RBTreeManager.* and TreeNode.* files into your application somewhere.  Once you have the files you can create a new RBTreeManager object, set its delegate, and start populating it:
 
-		_treeManager = [[TreeManager alloc] init];
-		[_treeManager setDelegate:self];
+		_RBTreeManager = [[RBTreeManager alloc] init];
+		[_RBTreeManager setDelegate:self];
 		
-		[_treeManager beginUpdates];
+		[_RBTreeManager beginUpdates];
 		
 		for (int i = 0; i < 3; i++)
 		{
 			NSString *parentKey = [self genRandStringLength:10];
 			NSString *parent = parentKey;
 
-			[_treeManager addObject:parent forKey:parentKey withComparator:^(id lhs, id rhs) { 
+			[_RBTreeManager addObject:parent forKey:parentKey withComparator:^(id lhs, id rhs) { 
 				return [((NSString *)lhs) compare:rhs ];
 			}];
 
@@ -24,36 +24,36 @@ To use the TreeMananger just copy the TreeManager.* and TreeNode.* files into yo
 				NSString *childKey = [self genRandStringLength:10];
 				NSString *child = childKey;
 
-				[_treeManager addObject:child forKey:childKey toParent:parentKey withComparator:^(id lhs, id rhs) { 
+				[_RBTreeManager addObject:child forKey:childKey toParent:parentKey withComparator:^(id lhs, id rhs) { 
 					return [((NSString *)lhs) compare:rhs ];
 				}];
 			}
 		}
 		
-		[_treeManager endUpdates];
+		[_RBTreeManager endUpdates];
 		
-Next you need to implement the TreeManager delegate methods:
+Next you need to implement the RBTreeManager delegate methods:
 
-		- (void)treeManagerWillChangeContent:(TreeManager *)manager
+		- (void)RBTreeManagerWillChangeContent:(RBTreeManager *)manager
 		{
 			[_tableView beginUpdates];
 		}
 
-		- (void)treeManager:(TreeManager *)manager didChangeObject:(id)object atIndex:(int)index forChangeType:(TreeManagerChangeType)type newIndex:(int)newIndex
+		- (void)RBTreeManager:(RBTreeManager *)manager didChangeObject:(id)object atIndex:(int)index forChangeType:(RBTreeManagerChangeType)type newIndex:(int)newIndex
 		{
 			NSIndexPath *indexPath = [NSIndexPath indexPathForRow:index inSection:0];
 			NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:newIndex inSection:0];
 
 			switch (type) {
-				case TreeManagerChangeTypeInsert:
+				case RBTreeManagerChangeTypeInsert:
 					[_tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationTop];
 					break;
 
-				case TreeManagerChangeTypeDelete:
+				case RBTreeManagerChangeTypeDelete:
 					[_tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationTop];
 					break;
 
-				case TreeManagerChangeTypeMove:
+				case RBTreeManagerChangeTypeMove:
 					[_tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationTop];
 					[_tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationTop];
 					break;
@@ -63,7 +63,7 @@ Next you need to implement the TreeManager delegate methods:
 			}
 		}
 
-		- (void)treeManagerDidChangeContent:(TreeManager *)manager
+		- (void)RBTreeManagerDidChangeContent:(RBTreeManager *)manager
 		{
 			[_tableView endUpdates];
 		}
@@ -74,12 +74,12 @@ And finally your TableView delegate and datasource methods:
 
 		- (void)configureCell:(UITableViewCell *)cell forIndex:(int)index
 		{
-			cell.textLabel.text = (NSString *)[_treeManager objectAtIndex:index];
+			cell.textLabel.text = (NSString *)[_RBTreeManager objectAtIndex:index];
 		}
 
 		- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 		{
-			return [_treeManager count];
+			return [_RBTreeManager count];
 		}
 
 		- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath 
@@ -105,6 +105,9 @@ And finally your TableView delegate and datasource methods:
 
 		- (NSInteger)tableView:(UITableView *)tableView indentationLevelForRowAtIndexPath:(NSIndexPath *)indexPath
 		{
-			return [_treeManager depthOfObjectAtIndex:indexPath.row];
+			return [_RBTreeManager depthOfObjectAtIndex:indexPath.row];
 		}
 		
+# To Do #
+* Add more tests showing other aspects of RBTreeManager
+* Implement breadth first navigation so that different types tree's can be displayed.
