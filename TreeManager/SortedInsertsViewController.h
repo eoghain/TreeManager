@@ -1,5 +1,5 @@
 //
-//  RandomInsertsViewController.h
+//  SortedInsertsViewController.h
 //  TreeManager
 //
 //  Created by Rob Booth on 12/28/11.
@@ -34,7 +34,7 @@
 #import "RootViewController.h"
 #import "RBTreeManager.h"
 
-@interface RandomInsertsViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate, RBTreeManagerDelegate, SubstitutableDetailViewController> {
+@interface SortedInsertsViewController : UIViewController <UIPopoverControllerDelegate, UISplitViewControllerDelegate, RBTreeManagerDelegate, SubstitutableDetailViewController> {
 }
 
 

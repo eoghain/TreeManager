@@ -33,11 +33,13 @@
 #import "RootViewController.h"
 
 #import "RandomInsertsViewController.h"
+#import "SortedInsertsViewController.h"
 
 @implementation RootViewController
 		
 @synthesize splitViewController;
-@synthesize detailViewController;
+@synthesize popoverController;
+@synthesize rootPopoverButtonItem;
 @synthesize tests;
 
 - (void)viewDidLoad
@@ -46,17 +48,18 @@
 	self.clearsSelectionOnViewWillAppear = NO;
 	self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
 	
-	self.tests = [NSArray arrayWithObjects:@"Random Inserts", nil];
+	self.tests = [NSArray arrayWithObjects:@"Random Inserts", @"Sorted Inserts", nil];
 	[self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
 	
 	self.title = @"Tree Manager Tests";
 	
-	self.detailViewController = [[RandomInsertsViewController alloc] initWithNibName:@"RandomInsertView" bundle:nil];
-	
-	// Update the split view controller's view controllers array.
-    NSArray *viewControllers = [[NSArray alloc] initWithObjects:self.navigationController, self.detailViewController, nil];
-    self.splitViewController.viewControllers = viewControllers;
-    [viewControllers release];
+//	RandomInsertsViewController *detailViewController = [[RandomInsertsViewController alloc] initWithNibName:@"RandomInsertView" bundle:nil];
+//	
+//	// Update the split view controller's view controllers array.
+//    NSArray *viewControllers = [[NSArray alloc] initWithObjects:self.navigationController, detailViewController, nil];
+//    self.splitViewController.viewControllers = viewControllers;
+//    [viewControllers release];
+//	[detailViewController release];
 }
 		
 - (void)viewWillAppear:(BOOL)animated
@@ -140,17 +143,41 @@
 }
 */
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here -- for example, create and push another view controller.
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
+     Create and configure a new detail view controller appropriate for the selection.
      */
+    NSUInteger row = indexPath.row;
+    
+    UIViewController <SubstitutableDetailViewController> *detailViewController = nil;
+	
+    if (row == 0) {
+        RandomInsertsViewController *newDetailViewController = [[RandomInsertsViewController alloc] initWithNibName:@"RandomInsertsView" bundle:nil];
+        detailViewController = newDetailViewController;
+    }
+	
+    if (row == 1) {
+        SortedInsertsViewController *newDetailViewController = [[SortedInsertsViewController alloc] initWithNibName:@"SortedInsertsView" bundle:nil];
+        detailViewController = newDetailViewController;
+    }
+	
+    // Update the split view controller's view controllers array.
+    NSArray *viewControllers = [[NSArray alloc] initWithObjects:self.navigationController, detailViewController, nil];
+    splitViewController.viewControllers = viewControllers;
+    [viewControllers release];
+    
+    // Dismiss the popover if it's present.
+    if (popoverController != nil) {
+        [popoverController dismissPopoverAnimated:YES];
+    }
+	
+    // Configure the new view controller's popover button (after the view has been displayed and its toolbar/navigation bar has been created).
+    if (rootPopoverButtonItem != nil) {
+        [detailViewController showRootPopoverButtonItem:self.rootPopoverButtonItem];
+    }
+	
+    [detailViewController release];
 }
 
 - (void)didReceiveMemoryWarning
@@ -170,7 +197,8 @@
 - (void)dealloc
 {
 	[splitViewController release];
-	[detailViewController release];
+	[popoverController release];
+	[rootPopoverButtonItem release];
     [super dealloc];
 }
 

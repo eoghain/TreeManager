@@ -32,14 +32,18 @@
 
 #import <UIKit/UIKit.h>
 
-@class RandomInsertsViewController;
+@protocol SubstitutableDetailViewController
+- (void)showRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem;
+- (void)invalidateRootPopoverButtonItem:(UIBarButtonItem *)barButtonItem;
+@end
 
 @interface RootViewController : UITableViewController {
 
 }
 
-@property (nonatomic, retain) UISplitViewController *splitViewController;		
-@property (nonatomic, retain) IBOutlet RandomInsertsViewController *detailViewController;
+@property (nonatomic, retain) IBOutlet UISplitViewController *splitViewController;
+@property (nonatomic, retain) UIPopoverController *popoverController;
+@property (nonatomic, retain) UIBarButtonItem *rootPopoverButtonItem;
 @property (nonatomic, retain) NSArray *tests;
 
 @end

@@ -22,6 +22,8 @@
 		313620B114AB9E2B000DD87F /* RBTreeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 313620AF14AB9E2B000DD87F /* RBTreeManager.m */; };
 		313620B614ABA36B000DD87F /* NodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 313620B414ABA36B000DD87F /* NodeView.m */; };
 		313620B714ABA36B000DD87F /* NodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 313620B514ABA36B000DD87F /* NodeView.xib */; };
+		313620DD14ACE973000DD87F /* SortedInsertsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 313620DB14ACE973000DD87F /* SortedInsertsViewController.m */; };
+		313620DE14ACE973000DD87F /* SortedInsertsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 313620DC14ACE973000DD87F /* SortedInsertsView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +51,9 @@
 		313620B314ABA36B000DD87F /* NodeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NodeView.h; sourceTree = "<group>"; };
 		313620B414ABA36B000DD87F /* NodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NodeView.m; sourceTree = "<group>"; };
 		313620B514ABA36B000DD87F /* NodeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NodeView.xib; sourceTree = "<group>"; };
+		313620DA14ACE972000DD87F /* SortedInsertsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortedInsertsViewController.h; sourceTree = "<group>"; };
+		313620DB14ACE973000DD87F /* SortedInsertsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortedInsertsViewController.m; sourceTree = "<group>"; };
+		313620DC14ACE973000DD87F /* SortedInsertsView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SortedInsertsView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +109,9 @@
 				3136209B14AB9BE6000DD87F /* RandomInsertsViewController.h */,
 				3136209C14AB9BE6000DD87F /* RandomInsertsViewController.m */,
 				3136209E14AB9BE6000DD87F /* RandomInsertsView.xib */,
+				313620DA14ACE972000DD87F /* SortedInsertsViewController.h */,
+				313620DB14ACE973000DD87F /* SortedInsertsViewController.m */,
+				313620DC14ACE973000DD87F /* SortedInsertsView.xib */,
 				313620A114AB9BE6000DD87F /* RootViewController.h */,
 				313620A214AB9BE6000DD87F /* RootViewController.m */,
 				3136208D14AB9BE6000DD87F /* Supporting Files */,
@@ -198,6 +206,7 @@
 				313620A014AB9BE6000DD87F /* RandomInsertsView.xib in Resources */,
 				313620AA14AB9C17000DD87F /* README.md in Resources */,
 				313620B714ABA36B000DD87F /* NodeView.xib in Resources */,
+				313620DE14ACE973000DD87F /* SortedInsertsView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -215,6 +224,7 @@
 				313620B014AB9E2B000DD87F /* RBTreeNode.m in Sources */,
 				313620B114AB9E2B000DD87F /* RBTreeManager.m in Sources */,
 				313620B614ABA36B000DD87F /* NodeView.m in Sources */,
+				313620DD14ACE973000DD87F /* SortedInsertsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,6 +339,7 @@
 				313620A814AB9BE6000DD87F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,5 +1,5 @@
 //
-//  RandomInsertsViewController.m
+//  SortedInsertsViewController.m
 //  TreeManager
 //
 //  Created by Rob Booth on 12/28/11.
@@ -30,14 +30,14 @@
 //  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-#import "RandomInsertsViewController.h"
+#import "SortedInsertsViewController.h"
 #import "RootViewController.h"
 
-@interface RandomInsertsViewController ()
+@interface SortedInsertsViewController ()
 @property (nonatomic, retain) UIPopoverController *popoverController;
 @end
 
-@implementation RandomInsertsViewController
+@implementation SortedInsertsViewController
 
 @synthesize toolbar=_toolbar;
 @synthesize popoverController=_myPopoverController;
@@ -71,11 +71,15 @@ static NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY
 	
 	if (parent == nil)
 	{
-		[_treeManager addObject:node forKey:node];
+		[_treeManager addObject:node forKey:node withComparator:^(id lhs, id rhs) { 
+			return [((NSString *)lhs) compare:rhs ];
+		}];
 	}
 	else
 	{
-		[_treeManager addObject:node forKey:node toParent:(NSString *)parent];
+		[_treeManager addObject:node forKey:node toParent:(NSString *)parent withComparator:^(id lhs, id rhs) { 
+			return [((NSString *)lhs) compare:rhs];
+		}];
 	}
 	
 	if (depth < [self.maxDepth.text intValue]) 
@@ -194,7 +198,7 @@ static NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY
 	self.treeManager = [[RBTreeManager alloc] init];
 	[self.treeManager setDelegate:self];
 	[self.tableView reloadData];
-	self.title = @"Random Inserts";
+	self.title = @"Sorted Inserts";
 }
 
 - (void)viewDidAppear:(BOOL)animated

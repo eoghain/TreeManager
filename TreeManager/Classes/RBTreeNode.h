@@ -42,7 +42,7 @@
 
 @property (nonatomic, retain) id				object;
 @property (nonatomic, assign) int				depth;
-@property (nonatomic, assign) RBTreeNode			*parent;
+@property (nonatomic, assign) RBTreeNode		*parent;
 @property (nonatomic, retain) NSMutableArray	*children;
 
 - (id)initWithObject:(id)object;
