@@ -88,7 +88,7 @@
 						<string key="NSFrame">{{512, 53}, {107, 37}}</string>
 						<reference key="NSSuperview" ref="647120888"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView" ref="310427737"/>
+						<reference key="NSNextKeyView" ref="397907085"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 						<int key="IBUIContentHorizontalAlignment">0</int>
@@ -258,7 +258,7 @@
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 						</object>
 					</object>
-					<object class="IBUITextView" id="310427737">
+					<object class="IBUITextView" id="397907085">
 						<reference key="NSNextResponder" ref="647120888"/>
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{20, 95}, {599, 74}}</string>
@@ -4822,7 +4822,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 							<reference ref="599531243"/>
 							<reference ref="149437614"/>
 							<reference ref="727981333"/>
-							<reference ref="310427737"/>
+							<reference ref="397907085"/>
 							<reference ref="927575749"/>
 						</object>
 						<reference key="parent" ref="0"/>
@@ -4880,7 +4880,7 @@ AAgAAAAIAAIACAACAAAAAgAAAAEAAQABAAE</bytes>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">87</int>
-						<reference key="object" ref="310427737"/>
+						<reference key="object" ref="397907085"/>
 						<reference key="parent" ref="647120888"/>
 					</object>
 				</object>

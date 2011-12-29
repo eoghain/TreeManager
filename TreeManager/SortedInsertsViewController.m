@@ -237,28 +237,6 @@ static NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXY
 	self.popoverController = nil;
 }
 
-#pragma mark - Split view support
-
-- (void)splitViewController:(UISplitViewController *)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController: (UIPopoverController *)pc
-{
-    barButtonItem.title = @"Tests";
-    NSMutableArray *items = [[self.toolbar items] mutableCopy];
-    [items insertObject:barButtonItem atIndex:0];
-    [self.toolbar setItems:items animated:YES];
-    [items release];
-    self.popoverController = pc;
-}
-
-// Called when the view is shown again in the split view, invalidating the button and popover controller.
-- (void)splitViewController:(UISplitViewController *)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
-{
-    NSMutableArray *items = [[self.toolbar items] mutableCopy];
-    [items removeObjectAtIndex:0];
-    [self.toolbar setItems:items animated:YES];
-    [items release];
-    self.popoverController = nil;
-}
-
 #pragma mark - TextView Delegate
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {

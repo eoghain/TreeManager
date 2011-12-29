@@ -52,14 +52,6 @@
 	[self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
 	
 	self.title = @"Tree Manager Tests";
-	
-//	RandomInsertsViewController *detailViewController = [[RandomInsertsViewController alloc] initWithNibName:@"RandomInsertView" bundle:nil];
-//	
-//	// Update the split view controller's view controllers array.
-//    NSArray *viewControllers = [[NSArray alloc] initWithObjects:self.navigationController, detailViewController, nil];
-//    self.splitViewController.viewControllers = viewControllers;
-//    [viewControllers release];
-//	[detailViewController release];
 }
 		
 - (void)viewWillAppear:(BOOL)animated
@@ -85,6 +77,31 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
     return YES;
 }
+
+#pragma mark - Split view support
+
+- (void)splitViewController:(UISplitViewController*)svc willHideViewController:(UIViewController *)aViewController withBarButtonItem:(UIBarButtonItem*)barButtonItem forPopoverController:(UIPopoverController*)pc {
+    
+    // Keep references to the popover controller and the popover button, and tell the detail view controller to show the button.
+    barButtonItem.title = @"Tests";
+    self.popoverController = pc;
+    self.rootPopoverButtonItem = barButtonItem;
+    UIViewController <SubstitutableDetailViewController> *detailViewController = [splitViewController.viewControllers objectAtIndex:1];
+    [detailViewController showRootPopoverButtonItem:rootPopoverButtonItem];
+}
+
+
+- (void)splitViewController:(UISplitViewController*)svc willShowViewController:(UIViewController *)aViewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem {
+	
+    // Nil out references to the popover controller and the popover button, and tell the detail view controller to hide the button.
+    UIViewController <SubstitutableDetailViewController> *detailViewController = [splitViewController.viewControllers objectAtIndex:1];
+    [detailViewController invalidateRootPopoverButtonItem:rootPopoverButtonItem];
+    self.popoverController = nil;
+    self.rootPopoverButtonItem = nil;
+}
+
+
+#pragma mark - TableView Delegate & Datasource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -192,6 +209,9 @@
 {
     // Relinquish ownership of anything that can be recreated in viewDidLoad or on demand.
     // For example: self.myOutlet = nil;
+	
+	self.splitViewController = nil;
+	self.rootPopoverButtonItem = nil;
 }
 
 - (void)dealloc
