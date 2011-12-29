@@ -342,6 +342,74 @@ Tells the RBTreeManager that you've finished doing your bulk updates and that it
 
 >Flattening out the tree is an expensive operation and so it shouldn't be done if you are doing alot of inserts at once
 
+## RBTreeManagerDelegate ##
+### treeManagerWillChangeContent: ###
+Called to inform the delegate that the RBTreeManager is going to change it's underlying data
+
+```objective-c
+- (void)treeManagerWillChangeContent:(RBTreeManager *)manager;
+```
+
+**Parameters**
+
+*manager*
+
+>The RBTreeManager that is preparing to change it's data
+
+**Discussion**
+
+>You might want to inform you users that the data is changing, or stop the UI from updateing until the data is stable again
+
+***************************************************************************************************************************************
+
+### treeManager:didChangeObject:atIndex:forChangeType:newIndex: ###
+Called on every change to the underlying data
+
+```objective-c
+- (void)treeManager:(RBTreeManager *)manager didChangeObject:(id)object atIndex:(int)index forChangeType:(RBTreeManagerChangeType)type newIndex:(int)newIndex;
+```
+
+**Parameters**
+
+*manager*
+
+>The RBTreeManager that is preparing to change it's data
+
+*object*
+
+>The Object that was changed
+
+*index*
+
+>The original index of the changed object
+
+*newIndex*
+
+>The new index of the object
+
+**Discussion**
+
+>Want to update your UI as changes are happening, this is the method that will allow it
+
+***************************************************************************************************************************************
+
+### treeManagerDidChangeContent: ###
+Called once the RBTreeManager has finished modifying it's underlying data
+
+```objective-c
+- (void)treeManagerDidChangeContent:(RBTreeManager *)manager;
+```
+
+**Parameters**
+
+*manager*
+
+>The RBTreeManager that just changed it's data
+
+**Discussion**
+
+>Now that the RBTreeManager is done changing things you might want to update your UI
+
 		
 # To Do #
 * Add more tests showing other aspects of RBTreeManager
