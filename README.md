@@ -127,15 +127,15 @@ Adds the supplied object to the root of the tree identified by the supplied key.
 
 *object*
 
-	>The object to add
+>The object to add
 
 *key*
 
-	>The key used to identify this object
+>The key used to identify this object
 
 **Discussion**
 
-	>This is the main entry point for objects into the root of the tree.  Using this method will at the object at the end of the tree.  If not called between a beginUpdates and endUpdates block, will cause RBTreeManager to rebuild.
+>This is the main entry point for objects into the root of the tree.  Using this method will at the object at the end of the tree.  If not called between a beginUpdates and endUpdates block, will cause RBTreeManager to rebuild.
 
 ***************************************************************************************************************************************
 
@@ -150,19 +150,19 @@ Adds the supplied object to the root of the tree identified by the supplied key,
 
 *object*
 
-	>The object to add
+>The object to add
 
 *key*
 
-	>The key used to identify this object
+>The key used to identify this object
 
 *sortBlock*
 
-	>Block that will be called to place this object into the correct order
+>Block that will be called to place this object into the correct order
 
 **Discussion**
 
-	>This is the main entry point for objects into the root of the tree when sorting of the objects is required.  If not called between a beginUpdates and endUpdates block, will cause RBTreeManager to rebuild.
+>This is the main entry point for objects into the root of the tree when sorting of the objects is required.  If not called between a beginUpdates and endUpdates block, will cause RBTreeManager to rebuild.
 
 ***************************************************************************************************************************************
 
@@ -177,15 +177,15 @@ Adds the supplied object under the supplied parent identified by the supplied ke
 
 *object*
 
-	>The object to add
+>The object to add
 
 *key*
 
-	>The key used to identify this object
+>The key used to identify this object
 
 **Discussion**
 
-	>This is the main entry point for objects into the root of the given parent.  Using this method will at the object at the end of the parents children.  If not called between a beginUpdates and endUpdates block, will cause RBTreeManager to rebuild.
+>This is the main entry point for objects into the root of the given parent.  Using this method will at the object at the end of the parents children.  If not called between a beginUpdates and endUpdates block, will cause RBTreeManager to rebuild.
 
 ***************************************************************************************************************************************
 
@@ -201,19 +201,19 @@ Adds the supplied object to the parent identified by the supplied key, places th
 
 *object*
 
-	>The object to add
+>The object to add
 
 *key*
 
-	>The key used to identify this object
+>The key used to identify this object
 
 *sortBlock*
 
-	>Block that will be called to place this object into the correct order
+>Block that will be called to place this object into the correct order
 
 **Discussion**
 
-	>This is the main entry point for objects into the parent when sorting of the objects is required.  If not called between a beginUpdates and endUpdates block, will cause RBTreeManager to rebuild.
+>This is the main entry point for objects into the parent when sorting of the objects is required.  If not called between a beginUpdates and endUpdates block, will cause RBTreeManager to rebuild.
 
 ***************************************************************************************************************************************
 
@@ -228,11 +228,11 @@ Removed the object with the specified key from the tree
 
 *key*
 
-	>The key used to identify this object
+>The key used to identify this object
 
 **Discussion**
 
-	> Removes the specified object.  If not called between a beginUpdates and endUpdates block, will cause RBTreeManager to rebuild.
+> Removes the specified object.  If not called between a beginUpdates and endUpdates block, will cause RBTreeManager to rebuild.
 
 ***************************************************************************************************************************************
 
@@ -247,15 +247,15 @@ Returns the object at the given index
 
 *index*
 
-	>Integer value corresponding to an index of the flattened tree.  Main use is to get the proper object for a UITableView.
+>Integer value corresponding to an index of the flattened tree.  Main use is to get the proper object for a UITableView.
 
 **Return Value**
 
-	>The object stored at the given index
+>The object stored at the given index
 
 **Discussion**
 
-	>RBTreeManager flattens out a hierarcy of nodes for easy access and placement in a UITableView and this method allows us to get the proper node after flattening.
+>RBTreeManager flattens out a hierarcy of nodes for easy access and placement in a UITableView and this method allows us to get the proper node after flattening.
 
 ***************************************************************************************************************************************
 
@@ -270,15 +270,15 @@ Returns the integer (0-based) depth of the object at the given index
 
 *index*
 
-	>Integer value corresponding to an index of the flattened tree.  Main use is to get the proper object for a UITableView.
+>Integer value corresponding to an index of the flattened tree.  Main use is to get the proper object for a UITableView.
 
 **Return Value**
 
-	>An integer representing the depth of the object at the given index
+>An integer representing the depth of the object at the given index
 
 **Discussion**
 
-	>Mainly used in the *tableView:indentationLevelForRowAtIndexPath:* UITableViewDelegate method for proper positioning
+>Mainly used in the *tableView:indentationLevelForRowAtIndexPath:* UITableViewDelegate method for proper positioning
 
 ***************************************************************************************************************************************
 
@@ -293,15 +293,15 @@ Returns the integer (0-based) depth of the object for the given key
 
 *index*
 
-	>Integer value corresponding to an index of the flattened tree.
+>Integer value corresponding to an index of the flattened tree.
 
 **Return Value**
 
-	>An integer representing the depth of the object for the given key
+>An integer representing the depth of the object for the given key
 
 **Discussion**
 
-	>A way of getting the depth of an object when all you have is the key
+>A way of getting the depth of an object when all you have is the key
 
 ***************************************************************************************************************************************
 
@@ -314,7 +314,7 @@ Returns the integer count of all objects stored in the RBTreeManager
 
 **Discussion**
 
-	>Mainly used in the *tableView:numberOfRowsInSection:* UITableViewDatasource method so your table view knows how many rows it'll need to display
+>Mainly used in the *tableView:numberOfRowsInSection:* UITableViewDatasource method so your table view knows how many rows it'll need to display
 
 ***************************************************************************************************************************************
 
@@ -327,7 +327,7 @@ Tells the RBTreeManager that you will be doing alot of updates so it shouldn't r
 
 **Discussion**
 
-	>Flattening out the tree is an expensive operation and so it shouldn't be done if you are doing alot of inserts at once
+>Flattening out the tree is an expensive operation and so it shouldn't be done if you are doing alot of inserts at once
 
 ***************************************************************************************************************************************
 
@@ -340,7 +340,7 @@ Tells the RBTreeManager that you've finished doing your bulk updates and that it
 
 **Discussion**
 
-	>Flattening out the tree is an expensive operation and so it shouldn't be done if you are doing alot of inserts at once
+>Flattening out the tree is an expensive operation and so it shouldn't be done if you are doing alot of inserts at once
 
 		
 # To Do #
